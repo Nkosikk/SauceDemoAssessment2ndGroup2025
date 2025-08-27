@@ -9,6 +9,7 @@ Feature: Purchase Item
     And click on the cart button
     Then I verify the item is in the cart
     When I click on the checkout button
+    Then The your information page is displayed
     Examples:
       | username      | password     |
       | standard_user | secret_sauce |
