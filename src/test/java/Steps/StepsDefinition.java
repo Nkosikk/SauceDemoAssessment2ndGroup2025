@@ -66,5 +66,30 @@ public class StepsDefinition extends Base {
     public void theYourInformationPageIsDisplayed() {
         informationPage.verifyYourInformationHeadingIsDisplayed();
     }
+
+    @When("I enter first name {string}")
+    public void iEnterFirstName(String firstName) {
+        informationPage.enterFirstName(firstName);
+    }
+
+    @And("I enter last name {string}")
+    public void iEnterLastName(String lastName) {
+        informationPage.enterLastName(lastName);
+    }
+
+    @And("I enter postal code {string}")
+    public void iEnterPostalCode(String postalCode) {
+        informationPage.enterPostalCode(postalCode);
+    }
+
+    @And("I clicks the continue button")
+    public void iClicksTheContinueButton() {
+        informationPage.clickContinueBtn();
+    }
+
+    @Then("I should be navigated to the overview page")
+    public void iShouldBeNavigatedToTheOverviewPage() {
+        checkOutOverviewPage.verifycheckOutOverView();
+    }
 }
 

@@ -10,6 +10,15 @@ Feature: Purchase Item
     Then I verify the item is in the cart
     When I click on the checkout button
     Then The your information page is displayed
+    When I enter first name "<firstname>"
+    And I enter last name "<lastname>"
+    And I enter postal code "<postalcode>"
+    And I clicks the continue button
+    Then I should be navigated to the overview page
+
     Examples:
-      | username      | password     |
-      | standard_user | secret_sauce |
+      | username      | password     | firstname| lastname|postalcode|
+      | standard_user | secret_sauce | Gift     | Motha   | 1984     |
+
+
+
