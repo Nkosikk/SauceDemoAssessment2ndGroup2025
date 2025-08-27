@@ -62,5 +62,9 @@ public class StepsDefinition extends Base {
         driver.quit();
     }
 
+    @Then("The your information page is displayed")
+    public void theYourInformationPageIsDisplayed() {
+        informationPage.verifyYourInformationHeadingIsDisplayed();
+    }
 }
 
