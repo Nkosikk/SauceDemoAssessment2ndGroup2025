@@ -28,6 +28,26 @@ public class StepsDefinition extends Base {
     landingPage.verifyProductTitleIsDisplayed();
     }
 
+
+    @When("I add an item to the cart")
+    public void i_add_an_item_to_the_cart() {
+        landingPage.clickAddToCartButton();
+    }
+    @When("click on the cart button")
+    public void click_on_the_cart_button() {
+        landingPage.clickCartButton();
+
+    }
+    @Then("I verify the item is in the cart")
+    public void i_verify_the_item_is_in_the_cart() {
+
+
+    }
+    @When("I click on the checkout button")
+    public void i_click_on_the_checkout_button() {
+
+    }
+
     @AfterStep
     public void addScreenshot(Scenario scenario) {
         if (scenario.isFailed()) {
@@ -43,3 +63,4 @@ public class StepsDefinition extends Base {
     }
 
 }
+
