@@ -2,6 +2,7 @@ package Utils;
 
 import Pages.LandingPage;
 import Pages.LoginPage;
+import Pages.YourCartPage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
 
@@ -12,5 +13,6 @@ public class Base {
 
     public LoginPage loginPage = PageFactory.initElements(driver, LoginPage.class);
     public LandingPage landingPage = PageFactory.initElements(driver, LandingPage.class);
+    public YourCartPage yourCartPage = PageFactory.initElements(driver, YourCartPage.class);
 
 }

@@ -45,7 +45,7 @@ public class StepsDefinition extends Base {
     }
     @When("I click on the checkout button")
     public void i_click_on_the_checkout_button() {
-
+        yourCartPage.clickCheckoutButton();
     }
 
     @AfterStep
