@@ -22,11 +22,20 @@ public class CheckOutOverviewPage {
     WebElement checkOutOverView_css;
 
 
+
+
     public void verifycheckOutOverView() {
         new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.visibilityOf(checkOutOverView_css));
         checkOutOverView_css.isDisplayed();
     }
 
+    // Validate that items are the same as in the cart
+
+
+
+
+
+    // Validate total price calculation
     // 1. Locate elements
     @FindBy(css = "span.item-total")
     WebElement itemTotalElement;
