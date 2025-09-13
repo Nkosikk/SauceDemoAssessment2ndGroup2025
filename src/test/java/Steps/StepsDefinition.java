@@ -3,6 +3,7 @@ package Steps;
 import Utils.Base;
 import io.cucumber.java.After;
 import io.cucumber.java.AfterStep;
+import io.cucumber.java.PendingException;
 import io.cucumber.java.Scenario;
 import io.cucumber.java.en.*;
 import org.openqa.selenium.OutputType;
@@ -14,18 +15,21 @@ public class StepsDefinition extends Base {
     public void i_am_in_the_login_page() {
 
     }
+
     @When("I enter a valid username {string} and a valid password {string}")
     public void i_enter_a_valid_username_and_a_valid_password(String username, String password) {
         loginPage.enterUsername(username);
         loginPage.enterPassword(password);
     }
+
     @And("I click on the login button")
     public void i_click_on_the_login_button() {
         loginPage.clickLoginButton();
     }
+
     @Then("I am logged in successfully")
     public void i_am_logged_in_successfully() {
-    landingPage.verifyProductTitleIsDisplayed();
+        landingPage.verifyProductTitleIsDisplayed();
     }
 
 
@@ -33,33 +37,22 @@ public class StepsDefinition extends Base {
     public void i_add_an_item_to_the_cart() {
         landingPage.clickAddToCartButton();
     }
+
     @When("click on the cart button")
     public void click_on_the_cart_button() {
         landingPage.clickCartButton();
 
     }
+
     @Then("I verify the item is in the cart")
     public void i_verify_the_item_is_in_the_cart() {
 
 
     }
+
     @When("I click on the checkout button")
     public void i_click_on_the_checkout_button() {
         yourCartPage.clickCheckoutButton();
-    }
-
-    @AfterStep
-    public void addScreenshot(Scenario scenario) {
-        if (scenario.isFailed()) {
-            final byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
-            scenario.attach(screenshot, "image/png", "screenshot");
-        }
-    }
-
-
-    @After
-    public void close_browser() {
-        driver.quit();
     }
 
     @Then("The your information page is displayed")
@@ -91,5 +84,33 @@ public class StepsDefinition extends Base {
     public void iShouldBeNavigatedToTheOverviewPage() {
         checkOutOverviewPage.verifycheckOutOverView();
     }
+
+    @And("I verify that the items added to items are displayed")
+    public void iVerifyThatTheItemsAddedToItemsAreDisplayed() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+    @And("I verify that new total calculation is correct")
+    public void iVerifyThatNewTotalCalculationIsCorrect() {
+        // Write code here that turns the phrase above into concrete actions
+        throw new PendingException();
+    }
+
+
+    @AfterStep
+    public void addScreenshot(Scenario scenario) {
+        if (scenario.isFailed()) {
+            final byte[] screenshot = ((TakesScreenshot) driver).getScreenshotAs(OutputType.BYTES);
+            scenario.attach(screenshot, "image/png", "screenshot");
+        }
+    }
+
+
+    @After
+    public void close_browser() {
+        driver.quit();
+    }
+
 }
 

@@ -12,7 +12,7 @@ public class CheckOutOverviewPage {
 
     WebDriver driver;
 
-    public CheckOutOverviewPage(WebDriver driver){
+    public CheckOutOverviewPage(WebDriver driver) {
         this.driver = driver;
 
     }
@@ -27,5 +27,27 @@ public class CheckOutOverviewPage {
         checkOutOverView_css.isDisplayed();
     }
 
+    // 1. Locate elements
+    @FindBy(css = "span.item-total")
+    WebElement itemTotalElement;
+
+    @FindBy(css = "span.tax")
+    WebElement taxElement;
+
+    @FindBy(css = "span.final-total")
+    WebElement finalTotalElement;
+
+    // 2. Validation method
+    public void validateTotalPriceCalculation() {
+        double itemTotal = Double.parseDouble(itemTotalElement.getText().replace("$", ""));
+        double tax = Double.parseDouble(taxElement.getText().replace("$", ""));
+        double displayedFinalTotal = Double.parseDouble(finalTotalElement.getText().replace("$", ""));
+        double expectedFinalTotal = itemTotal + tax;
+
+        // 3. Assertion
+        if (Math.abs(displayedFinalTotal - expectedFinalTotal) > 0.01) {
+            throw new AssertionError("Final total does not match expected value.");
+        }
+    }
 
 }

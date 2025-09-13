@@ -15,6 +15,8 @@ Feature: Purchase Item
     And I enter postal code "<postalcode>"
     And I clicks the continue button
     Then I should be navigated to the overview page
+    And I verify that the items added to items are displayed
+    And I verify that new total calculation is correct
 
     Examples:
       | username      | password     | firstname| lastname|postalcode|
