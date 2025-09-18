@@ -85,16 +85,15 @@ public class StepsDefinition extends Base {
         checkOutOverviewPage.verifycheckOutOverView();
     }
 
-    @And("I verify that the items added to items are displayed")
-    public void iVerifyThatTheItemsAddedToItemsAreDisplayed() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+    @And("I verify that the items added to cart are still displayed")
+    public void iVerifyThatTheItemsAddedToCartAreStillDisplayed() {
+        checkOutOverviewPage.validateItemsInCart("Sauce Labs Backpack", "$29.99");
+
     }
 
     @And("I verify that new total calculation is correct")
     public void iVerifyThatNewTotalCalculationIsCorrect() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new PendingException();
+        checkOutOverviewPage.validateTotalPriceCalculation();
     }
 
 
